@@ -64,8 +64,8 @@
 ### Cloning the Repository
 
 ```bash
-git clone https://github.com/yourusername/ai-saas-landing-page.git
-cd ai-saas-landing-page
+git clone https://github.com/yourusername/PixelAI.git
+cd PixelAI
 ```
 
 ### Installing Dependencies
