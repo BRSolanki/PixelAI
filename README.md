@@ -2,7 +2,7 @@
 
 <div align="center">
   <br />
-  <a href="https://youtu.be/qeCBBxZoqAM" target="_blank">
+  <a href="#" target="_blank">
     <img src="./banner.png" alt="Project Banner">
   </a>
   <br />
@@ -14,10 +14,7 @@
     <img src="https://img.shields.io/badge/-Zustand-000?style=for-the-badge" alt="Zustand" />
   </div>
   <h3 align="center">Build a Beautiful, Modern Landing Page for Your AI SaaS</h3>
-  <div align="center">
-    Follow along with our detailed tutorial on 
-    <a href="https://youtu.be/qeCBBxZoqAM" target="_blank"><b>YouTube</b></a>
-  </div>
+
   <br />
 </div>
 
@@ -30,11 +27,6 @@
 5. [Code Snippets](#code-snippets)
 6. [Assets & More](#assets--more)
 
-## 🚀 Introduction
-
-In this video tutorial, you'll learn how to build a beautiful, modern landing page tailored for your AI SaaS company. This project uses React, Vite, Tailwind CSS, and Zustand to deliver a sleek, responsive website designed to showcase your product and convert visitors into customers.
-
-Watch the full tutorial on [YouTube](https://youtu.be/qeCBBxZoqAM).
 
 ## ⚙️ Tech Stack
 
