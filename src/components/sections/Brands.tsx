@@ -1,21 +1,15 @@
 import { Container } from "../shared/Container";
 import { Title } from "../shared/Title";
 
-const logos = [
-  "discord",
-  "openai",
-  "paypal",
-  "slack",
-  "spotify",
-  "youtube",
-];
+const logos = ["discord", "openai", "paypal", "slack", "spotify", "youtube"];
 
 export const Brands = () => {
   return (
     <section>
-      <Container className="sapce-y-8">
+      {" "}
+      <Container className="space-y-8">
         <div className="text-center max-w-3xl mx-auto">
-          <Title> Trusted By Industry Leaders </Title>
+          <Title> Trusted by Industry Leaders </Title>
         </div>
         <div className="flex justify-center flex-wrap gap-4 pt-3">
             {logos.map((logo, key) => (
