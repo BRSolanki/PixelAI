@@ -1,49 +1,84 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Button } from "../shared/Button";
 import { Container } from "../shared/Container";
 import { Paragraph } from "../shared/Paragraph";
 import { Numbers } from "./Numbers";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export const Hero = () => {
+  const heroRef = useRef();
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.from(".hero-title", {
+        x: -80,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power3.out",
+      });
+
+      gsap.from(".hero-paragraph", {
+        y: 50,
+        opacity: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: "power3.out",
+      });
+
+      gsap.from(".hero-form", {
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        delay: 0.6,
+        ease: "power3.out",
+      });
+
+      gsap.from(".hero-image", {
+        scale: 0.95,
+        opacity: 0,
+        duration: 1.2,
+        delay: 0.4,
+        ease: "power3.out",
+      });
+    }, heroRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-    <section className="relative pt-32 lg:pt-36">
-      {" "}
+    <section className="relative pt-32 lg:pt-36" ref={heroRef}>
       <Container className="flex flex-col lg:flex-row gap-10 lg:gap-12">
         <div className="absolute w-full lg:w-1/2 inset-y-0 lg:right-0">
-          <span
-            className="absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 
-                        skew-x-12 rounded-3xl bg-gradient-to-r from-blue-600 to-violet-600
-                        blur-xl opacity-60 lg:opacity-95 lg:block hidden"
-          ></span>
-          <span className="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80"></span>
+          <span className="absolute -left-6 md:left-4 top-24 lg:top-28 w-24 h-24 rotate-90 skew-x-12 rounded-3xl bg-gradient-to-r from-blue-600 to-violet-600 blur-xl opacity-60 lg:opacity-95 lg:block hidden" />
+          <span className="absolute right-4 bottom-12 w-24 h-24 rounded-3xl bg-primary blur-xl opacity-80" />
         </div>
 
-        <div
-          className="relative flex flex-col items-center text-center lg:text-left lg:py-8 lg:items-start
-                        lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2"
-        >
-          <h1 className="text-heading-1 text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold">
+        {/* Text Side */}
+        <div className="relative flex flex-col items-center text-center lg:text-left lg:py-8 lg:items-start lg:max-w-none max-w-3xl mx-auto lg:mx-0 lg:flex-1 lg:w-1/2">
+          <h1 className="hero-title text-heading-1 text-3xl sm:text-4xl md:text-5xl xl:text-6xl font-bold">
             Empower Your Business
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-violet-600 ml-2">
-              with AI{" "}
+              with AI
             </span>
           </h1>
-          <Paragraph className="mt-8">
+
+          <Paragraph className="hero-paragraph mt-8">
             Our AI SaaS platform seamlessly integrates with your existing
             workflows to deliver real‑time insights, intelligent automation, and
             data‑driven decision-making. Experience a future where your business
             runs smarter, faster, and more efficiently.
           </Paragraph>
-          <div className="mt-10 w-full flex max-w-md mx-auto lg:mx-0">
+
+          <div className="hero-form mt-10 w-full flex max-w-md mx-auto lg:mx-0">
             <div className="flex sm:flex-row flex-col gap-5 w-full">
               <form
                 action="#"
-                className="py-1 pl-6 w-full pr-1 flex gap-3 items-center text-heading-3
-                                          shadow-lg shadow-box-shadow border border-box-border
-                                          bg-box-bg rounded-full ease-linear focus-within:bg-body
-                                          focus-within:border-primary"
+                className="py-1 pl-6 w-full pr-1 flex gap-3 items-center text-heading-3 shadow-lg shadow-box-shadow border border-box-border bg-box-bg rounded-full ease-linear focus-within:bg-body focus-within:border-primary"
               >
                 <span className="min-w-max pr-2 border-r border-box-border">
-                  {" "}
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="20"
@@ -73,7 +108,8 @@ export const Hero = () => {
           </div>
         </div>
 
-        <div className="flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl">
+        {/* Image Side */}
+        <div className="hero-image flex flex-1 lg:w-1/2 lg:h-auto relative lg:max-w-none lg:mx-0 mx-auto max-w-3xl">
           <img
             src="https://images.pexels.com/photos/7773731/pexels-photo-7773731.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt="Hero image"
